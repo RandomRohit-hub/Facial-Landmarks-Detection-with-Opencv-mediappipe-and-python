@@ -28,7 +28,8 @@ result=face_mesh.process(rgb_img)
 
 
 
-
+for facial_landmark in result.multi_face_landmarks:
+    print(facial_landmark)
 
 
 
