@@ -16,9 +16,12 @@ face_mesh = ma_face.FaceMesh()
 result =face_mesh.process(image)
 
 
+## rgb to bgr
 
+rgb_img=cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
 
-
+#facila landmark
+result=face_mesh.process(rgb_img)
 
 
 
@@ -62,6 +65,10 @@ if image_width > screen_width or image_height > screen_height:
         new_height = screen_height
         new_width = int(screen_height * aspect_ratio)
     image = cv2.resize(image, (new_width, new_height))
+
+
+
+
 
 
 
