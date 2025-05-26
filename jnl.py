@@ -29,7 +29,11 @@ result=face_mesh.process(rgb_img)
 
 
 for facial_landmark in result.multi_face_landmarks:
-    print(facial_landmark)
+    # print(facial_landmark)
+    pt1=facial_landmark.landmark[0]
+    x=pt1.x
+    y=pt1.y
+    print("x,y",x,y)
 
 
 
