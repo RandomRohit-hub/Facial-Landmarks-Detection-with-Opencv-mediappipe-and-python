@@ -5,7 +5,9 @@ import ctypes
 
 
 # Read the image
-image = cv2.imread('osama.jpg')
+image = cv2.imread('Arnold_Schwarzenegger_2019.jpg')
+height,width,_=image.shape
+print('Height ,Width',height,width)
 
 #face mesh
 ma_face = mp.solutions.face_mesh
@@ -31,13 +33,13 @@ result=face_mesh.process(rgb_img)
 for facial_landmark in result.multi_face_landmarks:
     # print(facial_landmark)
     pt1=facial_landmark.landmark[0]
-    x=pt1.x
-    y=pt1.y
+    x=pt1.x*width
+    y=pt1.y*height
     print("x,y",x,y)
 
 
 
-
+cv2.circle(image, (int(x), int(y)), 7, (100, 100, 0), -1)
 
 
 
