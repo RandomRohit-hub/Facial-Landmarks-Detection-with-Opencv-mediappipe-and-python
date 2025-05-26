@@ -31,15 +31,18 @@ result=face_mesh.process(rgb_img)
 
 
 for facial_landmark in result.multi_face_landmarks:
-    # print(facial_landmark)
-    pt1=facial_landmark.landmark[0]
-    x=pt1.x*width
-    y=pt1.y*height
-    print("x,y",x,y)
+    for i in range(0, 468):
+        pt1 = facial_landmark.landmark[i]  # Use i here, not 0
+        x = pt1.x * width
+        y = pt1.y * height
+        print("x, y:", x, y)
+        cv2.circle(image, (int(x), int(y)), 2, (100, 100, 0), -1)
+        cv2.putText(image, str(i), (int(x), int(y)), cv2.FONT_HERSHEY_SIMPLEX, 0.3, (255, 255, 255), 1)
 
 
 
-cv2.circle(image, (int(x), int(y)), 7, (100, 100, 0), -1)
+
+
 
 
 
